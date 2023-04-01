@@ -15,6 +15,49 @@
     <title>Temporizador</title>
   </head>
   <body>
+    <main>
+      <section>
+        <article
+          class="d-flex flex-column justify-content-center align-items-center vh-100"
+        >
+          <h1 class="text-center">Temporizador</h1>
+
+          <div class="d-flex flex-column mt-3">
+            <input
+              type="number"
+              class="form-control mb-2 text-center"
+              placeholder="Horas"
+              id="hours"
+            />
+            <input
+              type="number"
+              class="form-control mb-2 text-center"
+              placeholder="Minutos"
+              id="minutes"
+            />
+            <input
+              type="number"
+              class="form-control mb-2 text-center"
+              placeholder="Segundos"
+              id="seconds"
+            />
+          </div>
+
+          <h3 class="d-flex">
+            <span class="hours">00</span>:<span class="minutes">00</span>:<span
+              class="seconds"
+              >00</span
+            >
+          </h3>
+
+          <div class="d-flex gap-2 mt-2">
+            <button class="btn btn-success btn-init">Iniciar</button>
+            <button class="btn btn-success btn-pause">Pausar</button>
+            <button class="btn btn-success btn-reset">Reiniciar</button>
+          </div>
+        </article>
+      </section>
+    </main>
     <script src="./js/script.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
