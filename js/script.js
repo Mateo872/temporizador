@@ -39,14 +39,10 @@ function hoursCount(e) {
     } else if (hoursInput.value === "0" && hoursInput.value.length === 1) {
       hoursInput.value = "";
     } else {
-      hours.textContent = formatTime(e.target.value);
+      hours.textContent = formatTime(parseInt(e.target.value));
     }
   } else {
     hours.textContent = 23;
-  }
-
-  if (hoursInput.value.length === 0) {
-    hours.textContent = "00";
   }
 
   showBtnInit();
@@ -63,14 +59,10 @@ function minutesCount(e) {
     } else if (minutesInput.value === "0" && minutesInput.value.length === 1) {
       minutesInput.value = "";
     } else {
-      minutes.textContent = formatTime(e.target.value);
+      minutes.textContent = formatTime(parseInt(e.target.value));
     }
   } else {
     minutes.textContent = 59;
-  }
-
-  if (minutesInput.value.length === 0) {
-    minutes.textContent = "00";
   }
 
   showBtnInit();
@@ -87,14 +79,10 @@ function secondsCount(e) {
     } else if (secondsInput.value === "0" && secondsInput.value.length === 1) {
       secondsInput.value = "";
     } else {
-      seconds.textContent = formatTime(e.target.value);
+      seconds.textContent = formatTime(parseInt(e.target.value));
     }
   } else {
     seconds.textContent = 59;
-  }
-
-  if (secondsInput.value.length === 0) {
-    seconds.textContent = "00";
   }
 
   showBtnInit();
@@ -130,16 +118,29 @@ function timerStart() {
       seconds.textContent = 59;
     } else {
       clearInterval(timer);
-      count.innerHTML = "00:00:00";
 
       hoursInput.disabled = false;
       minutesInput.disabled = false;
       secondsInput.disabled = false;
+
+      btnInit.className = "btn btn-secondary";
+      btnInit.disabled = true;
+
+      btnPause.className = "btn btn-secondary";
+      btnPause.disabled = true;
+
+      btnReset.className = "btn btn-secondary";
+      btnReset.disabled = true;
     }
 
-    count.innerHTML = `${formatTime(hours.textContent)}:${formatTime(
-      minutes.textContent
-    )}:${formatTime(seconds.textContent)}`;
+    count.innerHTML = `
+    <span class="hours">${formatTime(
+      parseInt(hours.textContent)
+    )}</span>:<span class="minutes">${formatTime(
+      parseInt(minutes.textContent)
+    )}</span>:<span
+      class="seconds">${formatTime(parseInt(seconds.textContent))}</span
+    >`;
   }, 1000);
 }
 
@@ -163,15 +164,22 @@ function timerReset() {
   minutesInput.value = "";
   secondsInput.value = "";
 
-  hours.textContent = "";
-  minutes.textContent = "";
-  seconds.textContent = "";
+  hours.textContent = "00";
+  minutes.textContent = "00";
+  seconds.textContent = "00";
 
   hoursInput.disabled = false;
   minutesInput.disabled = false;
   secondsInput.disabled = false;
 
-  count.innerHTML = `00:00:00`;
+  count.innerHTML = `
+  <span class="hours">${formatTime(
+    parseInt(hours.textContent)
+  )}</span>:<span class="minutes">${formatTime(
+    parseInt(minutes.textContent)
+  )}</span>:<span
+      class="seconds">${formatTime(parseInt(seconds.textContent))}</span
+      >`;
 
   btnInit.className = "btn btn-success";
   btnInit.disabled = false;
