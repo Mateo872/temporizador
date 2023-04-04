@@ -133,14 +133,9 @@ function timerStart() {
       btnReset.disabled = true;
     }
 
-    count.innerHTML = `
-    <span class="hours">${formatTime(
-      parseInt(hours.textContent)
-    )}</span>:<span class="minutes">${formatTime(
-      parseInt(minutes.textContent)
-    )}</span>:<span
-      class="seconds">${formatTime(parseInt(seconds.textContent))}</span
-    >`;
+    hours.textContent = formatTime(hours.textContent);
+    minutes.textContent = formatTime(minutes.textContent);
+    seconds.textContent = formatTime(seconds.textContent);
   }, 1000);
 }
 
@@ -171,15 +166,6 @@ function timerReset() {
   hoursInput.disabled = false;
   minutesInput.disabled = false;
   secondsInput.disabled = false;
-
-  count.innerHTML = `
-  <span class="hours">${formatTime(
-    parseInt(hours.textContent)
-  )}</span>:<span class="minutes">${formatTime(
-    parseInt(minutes.textContent)
-  )}</span>:<span
-      class="seconds">${formatTime(parseInt(seconds.textContent))}</span
-      >`;
 
   btnInit.className = "btn btn-success";
   btnInit.disabled = false;
