@@ -38,6 +38,7 @@ function hoursCount(e) {
       hours.textContent = "00";
     } else if (hoursInput.value === "0" && hoursInput.value.length === 1) {
       hoursInput.value = "";
+      hours.textContent = "00";
     } else {
       hours.textContent = formatTime(parseInt(e.target.value));
     }
@@ -58,6 +59,7 @@ function minutesCount(e) {
       minutes.textContent = "00";
     } else if (minutesInput.value === "0" && minutesInput.value.length === 1) {
       minutesInput.value = "";
+      minutes.textContent = "00";
     } else {
       minutes.textContent = formatTime(parseInt(e.target.value));
     }
@@ -78,6 +80,7 @@ function secondsCount(e) {
       seconds.textContent = "00";
     } else if (secondsInput.value === "0" && secondsInput.value.length === 1) {
       secondsInput.value = "";
+      seconds.textContent = "00";
     } else {
       seconds.textContent = formatTime(parseInt(e.target.value));
     }
